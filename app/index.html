@@ -9,6 +9,9 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,6 +24,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div class="row">
+      <div class="col-sm-12 header-opaco text-left">
+        <div class="col-sm-12">
+          <div class="logo text-center">
+            <img class="img-logo" src="https://scontent-mia1-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1098326_623025714409510_214181469_n.jpg?oh=149de12cf2a07a8ea60b2262d27185bf&oe=56839450" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -33,28 +45,40 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">demolayAb</a>
+
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <li class="active"><a href="#/">Principal</a></li>
+              <li><a ng-href="#/about">História</a></li>
+              <li><a ng-href="#/">Diretoria</a></li>
+              <li><a ng-href="#/">Fotos</a></li>
+              <li><a ng-href="#/">Calendário</a></li>
+              <li><a ng-href="#/">Restrito</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
     <div ng-view=""></div>
     </div>
 
     <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4">
+            <div fb-page="https://www.facebook.com/Capitulo641" fb-faces="true" fb-posts="false" fb-hide="true"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <p>Made with <span class="glyphicon glyphicon-heart"></span> by ngTeam</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -69,6 +93,15 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
+    <script>
+      (function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -82,6 +115,9 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="bower_components/angular-slick/dist/slick.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -89,6 +125,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/directives/fbpage.js"></script>
         <!-- endbuild -->
 </body>
 </html>
