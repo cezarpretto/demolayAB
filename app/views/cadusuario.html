@@ -1,0 +1,145 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1><i class="fa fa-users"></i> Manutenção de Usuários</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="well well-sm">
+      <button type="button" class="btn btn-sm btn-primary" ng-click="novo()">Novo <i class="fa fa-plus"></i></button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-striped table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
+          <th>
+            Nome
+          </th>
+          <th>
+            Username
+          </th>
+          <th>
+            Nível
+          </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="u in listaUsuarios">
+          <td>
+            {{u.id}}
+          </td>
+          <td>
+            {{u.nome}}
+          </td>
+          <td>
+            {{u.username}}
+          </td>
+          <td>
+            {{u.nivel.descricao}}
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm" ng-click="selecionaUsusario(u)">
+              <i class="fa fa-pencil"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="dlgNovoUsuario" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Cadastro/Edição de Usuário</h4>
+      </div>
+      <form name="frmNovoUsuario" ng-submit="salvar()">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group">
+                <span class="input-group-addon">Nome:</span>
+                <input type="text" class="form-control" placeholder="Nome" ng-model="usuario.nome" required="required">
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon">Username:</span>
+                <input type="text" class="form-control" placeholder="Username" ng-model="usuario.username" required="required">
+              </div>
+              <br>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group" ng-if="edicao === false">
+                <span class="input-group-addon">Senha:</span>
+                <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha" required="required">
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon">Data Nascimento:</span>
+                <input format-date type="date" class="form-control" placeholder="Data Nascimento" ng-model="usuario.dtNascimento" required="required">
+              </div>
+              <br>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon">Data Iniciação:</span>
+                <input format-date type="date" class="form-control" placeholder="Data Iniciação" ng-model="usuario.dtIniciacao" required="required">
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">Imagem Perfil:</span>
+                <input type="file" ng-model="fotoCarregar" base-sixty-four-input ng-change="processaImagem()" accept="image/*">
+              </div>
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <span class="input-group-addon">Nível:</span>
+                <select2 class="form-control" ng-model="usuario.nivel.id" s2-options="val.id as val.descricao for val in listaNivel" required="required"></select2>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="row" ng-if="usuario.foto">
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <img src="{{usuario.foto}}" alt="Teste">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" ng-disabled="frmNovoUsuario.$invalid"><i class="fa fa-floppy-o"></i> Salvar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

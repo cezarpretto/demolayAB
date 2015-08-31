@@ -1,0 +1,36 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-heading-dourado">
+      <i class="fa fa-sign-in"></i> Login
+    </div>
+    <div class="panel-body">
+      <form ng-submit="logar()" name="frmLogin">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="input-group">
+              <span class="input-group-addon fixed-addon">Usuário:</span>
+              <input type="text" class="form-control" placeholder="Usuário" ng-model="usuario.username" required="required">
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="input-group">
+              <span class="input-group-addon fixed-addon">Senha:</span>
+              <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha" required="required">
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-success btn-block" ng-disabled="frmLogin.$invalid">
+              LOGAR
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

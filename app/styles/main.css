@@ -149,3 +149,8 @@ body {
   height: 300px;
   overflow: auto;
 }
+
+.fixed-addon{
+  min-width: 100px;
+  text-align: left;
+}

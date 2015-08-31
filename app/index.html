@@ -8,22 +8,27 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-growl-v2/build/angular-growl.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/select2/select2.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/select2-bootstrap-css/select2-bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="demolayAbApp">
+  <body ng-app="demolayAbApp" ng-controller="AppcontrollerCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div growl></div>
     <div class="row">
       <div class="col-sm-12 header-opaco text-left">
         <div class="col-sm-12">
@@ -56,7 +61,19 @@
               <li><a ng-href="#/">Diretoria</a></li>
               <li><a ng-href="#/">Fotos</a></li>
               <li><a ng-href="#/">Calendário</a></li>
-              <li><a ng-href="#/">Restrito</a></li>
+              <li ng-if="showMenu === false"><a ng-href="#/mainAdmin">Restrito</a></li>
+              <li ng-if="showMenu === true"><a ng-href="#/mainAdmin">Meu perfil</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right" ng-if="showMenu">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-user"></i><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#/cadUsuario">Manutenção de Usuários <i class="fa fa-users"></i></a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a ng-click="logout()">Sair <i class="fa fa-sign-out"></i></a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -107,17 +124,22 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-base64-upload/src/angular-base64-upload.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/select2/select2.js"></script>
+    <script src="bower_components/angular-select2/dist/angular-select2.js"></script>
     <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
     <script src="bower_components/angular-slick/dist/slick.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -126,6 +148,16 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/directives/fbpage.js"></script>
+        <script src="scripts/services/authservice.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/mainadmin.js"></script>
+        <script src="scripts/services/modelsevice.js"></script>
+        <script src="scripts/controllers/appcontroller.js"></script>
+        <script src="scripts/controllers/cadusuario.js"></script>
+        <script src="scripts/services/imageservice.js"></script>
+        <script src="scripts/services/modalservice.js"></script>
+        <script src="scripts/services/usuarioservice.js"></script>
+        <script src="scripts/directives/formatdate.js"></script>
         <!-- endbuild -->
 </body>
 </html>
