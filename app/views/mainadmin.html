@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-2" ng-if="showMenu">
+    <div class="panel panel-default">
+      <div class="row">
+        <div class="col-sm-12">
+          <a href="#" class="thumbnail">
+            <img ng-src="{{usuarioLogado.foto}}" alt="Foto perfil">
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a><span ng-bind="usuarioLogado.nome"></span></a></li>
+            <li role="presentation"><a href="#"><i class="fa fa-pencil"></i> Editar Perfil</a></li>
+            <li role="presentation"><a href="#"><i class="fa fa-inbox"></i> Mensagens <span class="badge">4</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -81,3 +81,76 @@ body {
     border-bottom: 0;
   }
 }
+
+.navbar{
+  /*height: 100px;*/
+  background-color: #FFCC00;
+}
+
+.nav{
+  /*margin-top: 90px;*/
+}
+
+.navbar-nav{
+  /*background-color: #FFF;*/
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background-color: #CC3300;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #000;
+}
+
+.navbar .nav > li > a{
+  color: #CC3300;
+}
+
+.header-opaco{
+  height: 220px;
+  background: #FFF url('http://demolaymt.org/imgs/bandeiras.jpg') center top no-repeat scroll;
+  /*-webkit-filter: blur(2px) drop-shadow(2px 2px 20px black) opacity(0.9);*/
+}
+
+.logo{
+  padding-top: 10px;
+}
+
+.img-logo{
+  width: 250px;
+}
+
+.panel-heading-dourado{
+  background-color: #FFCC00 !important;
+}
+
+.footer{
+  color: #FFF;
+  background-color: #CC3300
+}
+
+.btn-dourado{
+  background-color: #FFCC00 !important;
+}
+
+.box-principal{
+  height: 330px;
+}
+
+.panel-noticias{
+  height: 300px;
+  overflow: auto;
+}
+
+.fixed-addon{
+  min-width: 100px;
+  text-align: left;
+}
