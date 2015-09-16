@@ -17,7 +17,7 @@ angular.module('demolayAbApp')
         auth.setUsuario(retorno);
       }).error(function(err){
         console.error(err);
-        growl.error(err.message, {ttl: 4000});
+        growl.error(err.error_message, {ttl: 4000});
       });
     };
   }]);

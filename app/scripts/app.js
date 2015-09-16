@@ -22,7 +22,9 @@ angular
     'angular-growl',
     'angular-loading-bar',
     'naif.base64',
-    'rt.select2'
+    'rt.select2',
+    'ngFileUpload',
+    'smart-table'
   ])
   .config(function ($routeProvider) {
     $routeProvider
