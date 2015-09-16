@@ -38,8 +38,10 @@ module.exports = function(config) {
       'bower_components/angular-select2/dist/angular-select2.js',
       'bower_components/slick-carousel/slick/slick.min.js',
       'bower_components/angular-slick/dist/slick.js',
+      'bower_components/angular-smart-table/dist/smart-table.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/ng-file-upload/ng-file-upload.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

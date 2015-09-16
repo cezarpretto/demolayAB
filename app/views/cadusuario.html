@@ -6,14 +6,30 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="well well-sm">
-      <button type="button" class="btn btn-sm btn-primary" ng-click="novo()">Novo <i class="fa fa-plus"></i></button>
+       <button type="button" class="btn btn-sm btn-primary" ng-click="novo()">Novo <i class="fa fa-plus"></i></button>
+       <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#dlgUpload">Importar Cadastro SIS DM</button>
     </div>
   </div>
 </div>
+<!-- <div class="row">
+  <div class="col-sm-12">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{$scope.progressPercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$scope.progressPercentage}}%;">
+        {{$scope.progressPercentage}}%
+      </div>
+    </div>
+    {{$scope.progressPercentage}}
+  </div>
+</div> -->
 <div class="row">
   <div class="col-sm-12">
-    <table class="table table-striped table-condensed table-hover">
+    <table class="table table-striped table-condensed table-hover" st-table="listaUsuarios" st-safe-src="listaUsuariosAux">
       <thead>
+        <tr>
+          <th colspan="6">
+            <input st-search="" placeholder="Pesquisar..." class="input-sm form-control" type="search"/>
+          </th>
+        </tr>
         <tr>
           <th>
             ID
@@ -57,6 +73,13 @@
           </td>
         </tr>
       </tbody>
+      <tfoot>
+  			<tr>
+  				<td colspan="6" class="text-center">
+  					<div st-pagination="" st-items-by-page="10" st-displayed-pages="7"></div>
+  				</td>
+  			</tr>
+  		</tfoot>
     </table>
   </div>
 </div>
@@ -141,5 +164,27 @@
         </div>
       </div>
     </form>
+  </div>
+</div>
+
+<div class="modal fade" id="dlgUpload" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="">Importação de Cadastro SIS DM</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <input class="form-control" type="file" file-model="myFile"/>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="uploadFile()">Upload</button>
+      </div>
+    </div>
   </div>
 </div>
